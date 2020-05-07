@@ -1,13 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const StyledMovieThumb = styled.div`
+export const StyledGameThumb = styled.div`
   img {
     width: 100%;
-    height: auto;
-    /* max-height: 350px; */
+    height: 300px;
     transition: all 0.3s;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 15px;
 
     :hover {
       opacity: 0.8;
@@ -32,5 +31,16 @@ export const StyledMovieThumb = styled.div`
     .clickable {
       cursor: pointer;
     }
+
   }
-`;
+
+  h2 {
+    font-family: 'Abel', sans-serif;
+    font-size: 32px;
+    margin-top: 20px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+`

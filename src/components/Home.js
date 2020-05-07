@@ -14,11 +14,26 @@ import NoImage from './images/no_image.jpg'
 import { useHomeFetch } from './hooks/useHomeFetch'
 
 const Home = () => {
-    const { games, loading, error, heroImage, heroTitle } = useHomeFetch()
+    const [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames] = useHomeFetch()
     const [searchTerm, setSearchTerm] = useState("")
+    const header = document.querySelector('.header-content')
 
     console.log(games)
-    console.log(games.length > 0 ? games[0].name : "Initial State")
+    // console.log(games.length > 0 ? games[0].name : "Initial State")
+
+    const loadMoreGames = () => {
+        const searchEndpoint = `https://api.rawg.io/api/games?search=${searchTerm}`
+        const popularEndpoint = nextPage
+
+        const endpoint = searchTerm ? searchEndpoint : popularEndpoint
+
+        // window.scrollTo({
+        //     top: 0,
+        //     behavior: "smooth"
+        // })
+        fetchGames(endpoint)
+
+    }
 
     if (error) return <div>Something went wrong.</div>
     if (!games.length > 0) return <Spinner />
@@ -47,9 +62,9 @@ const Home = () => {
             <Grid header={searchTerm ? 'Search Result' : 'Popular New Releases'}>
                 {showGames()}
             </Grid>
-            <GameThumb />
-            <Spinner />
-            <LoadMoreBtn />
+            {loading && <Spinner />}
+            {!loading && (<LoadMoreBtn callback={loadMoreGames} />)}
+
         </>
     )
 

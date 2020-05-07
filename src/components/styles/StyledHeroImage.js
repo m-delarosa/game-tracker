@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledHeroImage = styled.div`
   background: ${props =>
@@ -10,7 +10,7 @@ export const StyledHeroImage = styled.div`
     ),
     url('${props.image}'), #1c1c1c`};
   background-size: 100%, cover !important;
-  background-position: center, center !important;
+  background-position: top !important;
   width: 100%;
   height: 600px;
   position: relative;
@@ -69,4 +69,4 @@ export const StyledHeroImage = styled.div`
       opacity: 1;
     }
   }
-`;
+`
