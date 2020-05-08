@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const StyledMovieInfoBar = styled.div`
+export const StyledGameInfoBar = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -10,42 +10,37 @@ export const StyledMovieInfoBar = styled.div`
   padding: 20px;
   box-sizing: border-box;
   font-family: 'Abel', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
+  justify-content: space-evenly;
 
-  .movieinfobar-content {
+  .gameinfobar-content {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
     color: #fff;
+    display: flex;
+    
   }
 
-  .movieinfobar-content-col {
-    float: left;
+  .gameinfobar-content-col {
     width: 33.33%;
     box-sizing: border-box;
     padding: 10px 20px 0 0;
+    text-align: center;
   }
 
-  .movieinfobar-info {
+  .gameinfobar-info {
     padding: 5px 0 0 10px;
-    float: left;
   }
 
-  .fa-time,
-  .fa-revenue {
-    float: left;
-    margin-top: -4px;
-  }
-
-  .fa-budget {
-    float: left;
-    margin-top: -3px;
+  svg {
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
   }
 
   @media screen and (max-width: 768px) {
-    .fa-time,
-    .fa-revenue,
-    .fa-budget {
+    svg {
       display: none;
     }
   }
@@ -53,4 +48,4 @@ export const StyledMovieInfoBar = styled.div`
   @media screen and (max-width: 425px) {
     font-size: 14px;
   }
-`;
+`
