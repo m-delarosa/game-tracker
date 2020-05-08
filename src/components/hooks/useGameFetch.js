@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 
 export const useGameFetch = gameSlug => {
     const [game, setGame] = useState([])
+    const [clip, setClip] = useState("")
+    const [preview, setPreview] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
@@ -13,6 +15,8 @@ export const useGameFetch = gameSlug => {
             const endpoint = `https://api.rawg.io/api/games?search=${gameSlug}`
             const result = await (await fetch(endpoint)).json()
             setGame(result.results[0])
+            setClip(result.results[0].clip.clips.full)
+            setPreview(result.results[0].clip.preview)
         } catch (error) {
             setError(true)
 
@@ -25,6 +29,6 @@ export const useGameFetch = gameSlug => {
         fetchData()
     }, [fetchData])
 
-    return [game, loading, error]
+    return [game, clip, preview, loading, error]
 }
 

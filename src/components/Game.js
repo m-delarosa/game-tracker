@@ -12,17 +12,23 @@ import { useGameFetch } from './hooks/useGameFetch'
 
 const Game = ({ gameSlug }) => {
 
-    const [game, loading, error] = useGameFetch(gameSlug)
+    const [game, clip, preview, loading, error] = useGameFetch(gameSlug)
 
-    console.log(game)
+    const $video = document.querySelector('.video')
+    console.log($video)
+
+    // console.log(preview)
+    // console.log(game.length > 0 ? game.clip.clip : "Initial State")
+
+    if (error) return <div>Something went wrong ...</div>
+    if (loading) return <Spinner />
 
     return (
         <>
-            <Navigation />
-            <GameVideo />
+            <Navigation name={game.name} />
+            <GameVideo video={clip} preview={preview} />
             <GameInfoBar />
             <GameScreenShots />
-            {/* <Spinner /> */}
         </>
 
     )
