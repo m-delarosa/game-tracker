@@ -16,6 +16,10 @@ export const StyledHeader = styled.div`
     margin: 0 auto;
     box-sizing: border-box;
 
+    a {
+      text-decoration: none !important;
+    }
+
     @media screen and (max-width: 500px) {
       max-width: 1280px;
       min-height: 0px;
