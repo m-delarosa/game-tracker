@@ -27,7 +27,7 @@ const Game = ({ gameSlug }) => {
         <>
             <Navigation name={game.name} />
             <GameVideo video={clip} preview={preview} />
-            <GameInfoBar />
+            <GameInfoBar rating={game.rating} released={game.released} />
             <GameScreenShots />
         </>
 
