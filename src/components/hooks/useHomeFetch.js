@@ -9,6 +9,7 @@ export const useHomeFetch = () => {
     const [nextPage, setNextPage] = useState("")
 
 
+
     const fetchGames = async endpoint => {
         setError(false)
         setLoading(true)
