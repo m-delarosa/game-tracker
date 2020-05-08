@@ -16,17 +16,35 @@ import { useHomeFetch } from './hooks/useHomeFetch'
 const Home = () => {
     const [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames] = useHomeFetch()
     const [searchTerm, setSearchTerm] = useState("")
-    const header = document.querySelector('.header-content')
+    const [currentSearchPage, setCurrentSearchPage] = useState(0)
 
-    console.log(games)
+
+    // console.log(games)
     // console.log(games.length > 0 ? games[0].name : "Initial State")
 
+    const searchGames = search => {
+        const endpoint =
+            search
+                ? `https://api.rawg.io/api/games?search=${search}`
+                : 'https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=20'
+
+        setSearchTerm(search)
+        setCurrentSearchPage(1)
+        fetchGames(endpoint)
+    }
+
     const loadMoreGames = () => {
-        const searchEndpoint = `https://api.rawg.io/api/games?search=${searchTerm}`
+        const searchEndpoint = `https://api.rawg.io/api/games?search=${searchTerm}&page=${currentSearchPage + 1}`
         const popularEndpoint = nextPage
 
-        const endpoint = searchTerm ? searchEndpoint : popularEndpoint
+        const endpoint =
+            searchTerm
+                ? searchEndpoint
+                : popularEndpoint
 
+        searchTerm
+            ? setCurrentSearchPage(currentSearchPage + 1)
+            : setCurrentSearchPage(0)
         // window.scrollTo({
         //     top: 0,
         //     behavior: "smooth"
@@ -58,7 +76,7 @@ const Home = () => {
         <>
             <Header />
             <HeroImage image={heroImage} title={heroTitle} />
-            <SearchBar />
+            <SearchBar callback={searchGames} />
             <Grid header={searchTerm ? 'Search Result' : 'Popular New Releases'}>
                 {showGames()}
             </Grid>
