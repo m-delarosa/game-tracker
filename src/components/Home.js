@@ -67,6 +67,7 @@ const Home = () => {
                 }
                 name={game.name}
                 gameID={game.id}
+                gameSlug={game.slug}
             />
         ))
     }
@@ -75,7 +76,7 @@ const Home = () => {
         <>
             <HeroImage image={heroImage} title={heroTitle} />
             <SearchBar callback={searchGames} />
-            <Grid header={searchTerm ? 'Search Result' : 'Popular New Releases'}>
+            <Grid header={searchTerm ? 'Search Result' : 'Trending'}>
                 {showGames()}
             </Grid>
             {loading && <Spinner />}

@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Router>
         <Home path="/" />
-        <Game path="/:gameId" />
+        <Game path="/:gameSlug" />
         <NotFound default />
       </Router>
       <GlobalStyle />
