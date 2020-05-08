@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 // element components
-import Header from './elements/Header'
 import HeroImage from './elements/HeroImage'
 import SearchBar from './elements/SearchBar'
 import Grid from './elements/Grid'
@@ -74,7 +73,6 @@ const Home = () => {
 
     return (
         <>
-            <Header />
             <HeroImage image={heroImage} title={heroTitle} />
             <SearchBar callback={searchGames} />
             <Grid header={searchTerm ? 'Search Result' : 'Popular New Releases'}>
@@ -82,7 +80,6 @@ const Home = () => {
             </Grid>
             {loading && <Spinner />}
             {!loading && (<LoadMoreBtn callback={loadMoreGames} />)}
-
         </>
     )
 
