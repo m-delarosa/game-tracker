@@ -12,7 +12,7 @@ import { useGameFetch } from './hooks/useGameFetch'
 
 const Game = ({ gameSlug }) => {
 
-    const [game, clip, preview, loading, error] = useGameFetch(gameSlug)
+    const [game, clip, preview, background, screenshots, loading, error] = useGameFetch(gameSlug)
 
     const $video = document.querySelector('.video')
     console.log($video)
@@ -26,9 +26,8 @@ const Game = ({ gameSlug }) => {
     return (
         <>
             <Navigation name={game.name} />
-            <GameVideo video={clip} preview={preview} />
+            <GameVideo video={clip} preview={preview} background={background} screenshots={screenshots} />
             <GameInfoBar rating={game.rating} released={game.released} />
-            <GameScreenShots />
         </>
 
     )

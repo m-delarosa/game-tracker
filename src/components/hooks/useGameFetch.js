@@ -4,6 +4,8 @@ export const useGameFetch = gameSlug => {
     const [game, setGame] = useState([])
     const [clip, setClip] = useState("")
     const [preview, setPreview] = useState("")
+    const [background, setBackground] = useState("")
+    const [screenshots, setScreenshots] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
@@ -17,6 +19,8 @@ export const useGameFetch = gameSlug => {
             setGame(result.results[0])
             setClip(result.results[0].clip.clips.full)
             setPreview(result.results[0].clip.preview)
+            setBackground(result.results[0].background_image)
+            setScreenshots(result.results[0].short_screenshots)
         } catch (error) {
             setError(true)
 
@@ -29,6 +33,6 @@ export const useGameFetch = gameSlug => {
         fetchData()
     }, [fetchData])
 
-    return [game, clip, preview, loading, error]
+    return [game, clip, preview, background, screenshots, loading, error]
 }
 
