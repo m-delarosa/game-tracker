@@ -18,8 +18,8 @@ export const useHomeFetch = () => {
 
         try {
             const result = await (await fetch(endpoint)).json()
-            setHeroImage(result.results[0].background_image)
-            setHeroTitle(result.results[0].name)
+            setHeroImage(result.results[1].background_image)
+            setHeroTitle(result.results[1].name)
             // setGames(result.results)
             setGames(isLoadMore == -1 ? result.results : [...games, ...result.results])
             setNextPage(result.next)
