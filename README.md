@@ -13,7 +13,7 @@ A video game database that actively tracks the top-trending games in the market 
 
 ## Features 🌟
 - Users can browse the current top-trending video games.
-- Users can view screenshots, a gameplay video, compatible platforms, release date and ratings.
+- Users can view screenshots, a gameplay videos, compatible platforms, release dates, and ratings.
 - Users can use predictive search for any video game ever published.
 
 ## Built with 🔧
