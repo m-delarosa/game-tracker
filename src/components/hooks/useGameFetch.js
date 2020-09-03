@@ -23,7 +23,6 @@ export const useGameFetch = gameSlug => {
             setScreenshots(result.results[0].short_screenshots)
         } catch (error) {
             setError(true)
-
         }
         setLoading(false)
 
