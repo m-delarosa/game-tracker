@@ -10,9 +10,10 @@ import Spinner from './elements/Spinner'
 //hook
 import { useGameFetch } from './hooks/useGameFetch'
 
-const Game = ({ gameSlug }) => {
-
-    const [game, clip, preview, background, screenshots, loading, error] = useGameFetch(gameSlug)
+const Game = props => {
+    const { match: { params } } = props
+    console.log(props)
+    const [game, clip, preview, background, screenshots, loading, error] = useGameFetch(params.gameSlug)
     const $video = document.querySelector('.video')
 
     if (error) return <div>Something went wrong ...</div>
