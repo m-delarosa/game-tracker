@@ -21,7 +21,7 @@ export const useHomeFetch = () => {
             setHeroImage(result.results[1].background_image)
             setHeroTitle(result.results[1].name)
             // setGames(result.results)
-            setGames(isLoadMore == -1 ? result.results : [...games, ...result.results])
+            setGames(isLoadMore === -1 ? result.results : [...games, ...result.results])
             setNextPage(result.next)
         } catch (error) {
             setError(true)

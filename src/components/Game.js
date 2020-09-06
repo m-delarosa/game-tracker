@@ -3,7 +3,7 @@ import React from 'react'
 //elements
 import Navigation from './elements/Navigation'
 import GameInfoBar from './elements/GameInfoBar'
-import GameVideo from './elements/GameVideo'
+import GameCarousel from './elements/GameCarousel'
 import GameScreenShots from './elements/GameScreenShots'
 import Spinner from './elements/Spinner'
 
@@ -21,7 +21,7 @@ const Game = ({ gameSlug }) => {
     return (
         <>
             <Navigation name={game.name} />
-            <GameVideo video={clip} preview={preview} background={background} screenshots={screenshots} />
+            <GameCarousel video={clip} preview={preview} background={background} screenshots={screenshots} gameSlug={gameSlug} />
             <GameInfoBar rating={game.rating} released={game.released} />
         </>
     )
