@@ -20,19 +20,17 @@ export const useHomeFetch = () => {
             const result = await (await fetch(endpoint)).json()
             setHeroImage(result.results[1].background_image)
             setHeroTitle(result.results[1].name)
-            // setGames(result.results)
             setGames(isLoadMore === -1 ? result.results : [...games, ...result.results])
             setNextPage(result.next)
         } catch (error) {
             setError(true)
-            console.log(error)
         }
         setLoading(false)
     }
 
     useEffect(() => {
         fetchGames('https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=20')
-    })
+    }, [])
 
     return [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames]
 }

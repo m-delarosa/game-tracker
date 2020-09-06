@@ -6,8 +6,8 @@ import "react-multi-carousel/lib/styles.css"
 
 
 const GameVideo = ({ video, preview, background, screenshots, gameSlug }) => {
-    const screenshotsCollection = screenshots.map(image => {
-        return <img className="screenshot" src={image.image} alt={gameSlug} />
+    const screenshotsCollection = screenshots.map((image, index) => {
+        return <img className="screenshot" src={image.image} alt={gameSlug} key={`img${index}`} />
     })
 
 
@@ -59,7 +59,7 @@ const GameVideo = ({ video, preview, background, screenshots, gameSlug }) => {
                 swipeable
             >
                 {screenshotsCollection}
-                <video className='video' controls="true" name="media" ><source src={video} type="video/mp4" /></video>
+                <video className='video' controls={true} name="media" ><source src={video} type="video/mp4" /></video>
             </Carousel>
         </StyledGameVideo >
     )

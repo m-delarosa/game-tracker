@@ -17,10 +17,6 @@ const Home = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [currentSearchPage, setCurrentSearchPage] = useState(0)
 
-
-    // console.log(games)
-    // console.log(games.length > 0 ? games[0].name : "Initial State")
-
     const searchGames = search => {
         const endpoint =
             search
@@ -44,10 +40,6 @@ const Home = () => {
         searchTerm
             ? setCurrentSearchPage(currentSearchPage + 1)
             : setCurrentSearchPage(0)
-        // window.scrollTo({
-        //     top: 0,
-        //     behavior: "smooth"
-        // })
         fetchGames(endpoint)
 
     }
@@ -85,6 +77,5 @@ const Home = () => {
     )
 
 }
-
 
 export default Home
