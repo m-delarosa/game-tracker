@@ -1,6 +1,5 @@
 import React from 'react'
-// import { Router } from '@reach/router'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Router } from '@reach/router'
 import '../App.css'
 import Home from './Home'
 import { GlobalStyle } from './styles/GlobalStyle'
@@ -10,15 +9,15 @@ import NotFound from './NotFound'
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/:gameSlug" component={Game} />
-        <Route default component={NotFound} />
-      </Switch>
+      <Router>
+        <Home path="/" />
+        <Game path="/:gameSlug" />
+        <NotFound default />
+      </Router>
       <GlobalStyle />
-    </BrowserRouter>
+    </>
   )
 }
 

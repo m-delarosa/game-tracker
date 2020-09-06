@@ -1,5 +1,4 @@
 import React from 'react'
-import FontAwesome from 'react-fontawesome'
 import { playstation, xbox, windows } from '../images/platformIcons'
 
 import { StyledGameInfoBar } from '../styles/StyledGameInfoBar'
@@ -9,7 +8,6 @@ const GameInfoBar = ({ rating, released }) => {
     return (
         <StyledGameInfoBar>
             <div className="gameinfobar-content">
-
                 <div className="gameinfobar-content-col">
                     <span className="gameinfobar-info">
                         Platforms: {windows}{xbox}{playstation}
