@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export const useHomeFetch = () => {
     const [games, setGames] = useState([])
@@ -10,7 +10,7 @@ export const useHomeFetch = () => {
 
 
 
-    const fetchGames = async endpoint => {
+    const fetchGames = useCallback(async endpoint => {
         setError(false)
         setLoading(true)
 
@@ -26,11 +26,11 @@ export const useHomeFetch = () => {
             setError(true)
         }
         setLoading(false)
-    }
+    }, [games])
 
     useEffect(() => {
         fetchGames('https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=20')
-    }, [])
+    }, [fetchGames])
 
     return [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames]
 }

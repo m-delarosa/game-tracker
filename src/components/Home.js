@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-
-// element components
 import HeroImage from './elements/HeroImage'
 import SearchBar from './elements/SearchBar'
 import Grid from './elements/Grid'
@@ -8,8 +6,6 @@ import GameThumb from './elements/GameThumb'
 import LoadMoreBtn from './elements/LoadMoreBtn'
 import Spinner from './elements/Spinner'
 import NoImage from './images/no_image.jpg'
-
-// hooks
 import { useHomeFetch } from './hooks/useHomeFetch'
 
 const Home = () => {
