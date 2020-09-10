@@ -1,16 +1,28 @@
 import React from 'react'
-import { playstation, xbox, windows } from '../images/platformIcons'
-
 import { StyledGameInfoBar } from '../styles/StyledGameInfoBar'
 
-const GameInfoBar = ({ rating, released }) => {
+const GameInfoBar = ({ rating, released, platforms }) => {
+    const displayPlatforms = () => {
+        if (platforms) {
+            let result = ""
+
+            for (let i = 0; i < platforms.length; i++) {
+                i === platforms.length - 1
+                    ? result += ` ${platforms[i].platform.name}`
+                    : result += ` ${platforms[i].platform.name},`
+            }
+
+            return result
+        }
+
+    }
 
     return (
         <StyledGameInfoBar>
             <div className="gameinfobar-content">
                 <div className="gameinfobar-content-col">
                     <span className="gameinfobar-info">
-                        Platforms: {windows}{xbox}{playstation}
+                        Platforms: {displayPlatforms()}
                     </span>
                 </div>
                 <div className="gameinfobar-content-col">
