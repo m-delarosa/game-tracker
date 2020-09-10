@@ -7,6 +7,7 @@ import LoadMoreBtn from './elements/LoadMoreBtn'
 import Spinner from './elements/Spinner'
 import NoImage from './images/no_image.jpg'
 import { useHomeFetch } from './hooks/useHomeFetch'
+import { Link } from '@reach/router'
 
 const Home = () => {
     const [{ games, loading, error, heroImage, heroTitle, heroSlug, nextPage }, fetchGames] = useHomeFetch()
@@ -62,7 +63,9 @@ const Home = () => {
 
     return (
         <>
-            <HeroImage image={heroImage} title={heroTitle} heroSlug={heroSlug} />
+            <Link to={heroSlug}>
+                <HeroImage image={heroImage} title={heroTitle} />
+            </Link>
             <SearchBar callback={searchGames} />
             <Grid header={searchTerm ? 'Search Result' : 'Trending'}>
                 {showGames()}
