@@ -16,6 +16,10 @@ export const StyledHeroImage = styled.div`
   position: relative;
   animation: animateHeroimage 1s;
 
+  @media screen and (max-width: 720px) {
+    height: 200px;
+  }
+
   .heroimage-content {
     max-width: 1280px;
     padding: 20px;

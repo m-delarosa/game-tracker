@@ -1,19 +1,16 @@
 import React from 'react'
-import { StyledGameVideo } from '../styles/StyledGameVideo'
-
+import { StyledGameCarousel } from '../styles/StyledGameCarousel'
 import Carousel from 'react-multi-carousel'
 import "react-multi-carousel/lib/styles.css"
 
 
-const GameVideo = ({ video, preview, background, screenshots, gameSlug }) => {
+const GameCarousel = ({ video, preview, background, screenshots, gameSlug }) => {
     const screenshotsCollection = screenshots.map((image, index) => {
         return <img className="screenshot" src={image.image} alt={gameSlug} key={`img${index}`} />
     })
 
-
-
     return (
-        <StyledGameVideo>
+        <StyledGameCarousel>
             <Carousel
                 additionalTransfrom={0}
                 arrows
@@ -61,11 +58,11 @@ const GameVideo = ({ video, preview, background, screenshots, gameSlug }) => {
                 {screenshotsCollection}
                 <video className='video' controls={true} name="media" ><source src={video} type="video/mp4" /></video>
             </Carousel>
-        </StyledGameVideo >
+        </StyledGameCarousel >
     )
 
 
 
 }
 
-export default GameVideo
+export default GameCarousel
