@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyledGameInfoBar = styled.div`
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   min-height: 100px;
@@ -11,7 +12,7 @@ export const StyledGameInfoBar = styled.div`
   box-sizing: border-box;
   font-family: 'Abel', sans-serif;
   font-size: 22px;
-  justify-content: space-evenly;
+
 
   .gameinfobar-content {
     max-width: 1280px;
@@ -19,7 +20,6 @@ export const StyledGameInfoBar = styled.div`
     margin: 0 auto;
     color: #fff;
     display: flex;
-    
   }
 
   .gameinfobar-content-col {
@@ -33,19 +33,21 @@ export const StyledGameInfoBar = styled.div`
     padding: 5px 0 0 10px;
   }
 
-  svg {
-    height: 20px;
-    width: 20px;
-    margin-left: 5px;
-  }
-
   @media screen and (max-width: 768px) {
-    svg {
-      display: none;
-    }
-  }
+    justify-content: center;
 
-  @media screen and (max-width: 425px) {
-    font-size: 14px;
+    .gameinfobar-content {
+    flex-direction: column;
+    justify-content: center;
+    }
+
+    .gameinfobar-content-col {
+      width: 100%;
+      padding-right: 0px;
+    }
+
+    .gameinfobar-info {
+      padding: 0;
+    }
   }
 `

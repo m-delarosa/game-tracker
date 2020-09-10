@@ -35,7 +35,6 @@ const GameInfoBar = ({ rating, released, platforms }) => {
                         Release Date: {released}
                     </span>
                 </div>
-
             </div>
         </StyledGameInfoBar>
     )
