@@ -40,7 +40,8 @@ export const StyledGameThumb = styled.div`
     margin-top: 20px;
 
     @media screen and (max-width: 768px) {
-      font-size: 16px;
+      font-size: 24px;
+      margin-top: 10px;
     }
   }
 `
