@@ -22,7 +22,7 @@ export const StyledNavigation = styled.div`
       text-decoration: none;
 
       @media screen and (max-width: 768px) {
-        font-size: 16px;
+        font-size: 20px;
       }
     }
   }
