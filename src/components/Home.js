@@ -9,7 +9,7 @@ import NoImage from './images/no_image.jpg'
 import { useHomeFetch } from './hooks/useHomeFetch'
 
 const Home = () => {
-    const [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames] = useHomeFetch()
+    const [{ games, loading, error, heroImage, heroTitle, heroSlug, nextPage }, fetchGames] = useHomeFetch()
     const [searchTerm, setSearchTerm] = useState("")
     const [currentSearchPage, setCurrentSearchPage] = useState(0)
 
@@ -62,7 +62,7 @@ const Home = () => {
 
     return (
         <>
-            <HeroImage image={heroImage} title={heroTitle} />
+            <HeroImage image={heroImage} title={heroTitle} heroSlug={heroSlug} />
             <SearchBar callback={searchGames} />
             <Grid header={searchTerm ? 'Search Result' : 'Trending'}>
                 {showGames()}

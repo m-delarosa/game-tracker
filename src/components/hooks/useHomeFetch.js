@@ -6,6 +6,7 @@ export const useHomeFetch = () => {
     const [error, setError] = useState(false)
     const [heroImage, setHeroImage] = useState("")
     const [heroTitle, setHeroTitle] = useState("")
+    const [heroSlug, setHeroSlug] = useState("")
     const [nextPage, setNextPage] = useState("")
 
 
@@ -20,6 +21,7 @@ export const useHomeFetch = () => {
             const result = await (await fetch(endpoint)).json()
             setHeroImage(result.results[1].background_image)
             setHeroTitle(result.results[1].name)
+            setHeroSlug(result.results[1].slug)
             setGames(isLoadMore === -1 ? result.results : [...games, ...result.results])
             setNextPage(result.next)
         } catch (error) {
@@ -32,5 +34,5 @@ export const useHomeFetch = () => {
         fetchGames('https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=20')
     }, [])
 
-    return [{ games, loading, error, heroImage, heroTitle, nextPage }, fetchGames]
+    return [{ games, loading, error, heroImage, heroTitle, heroSlug, nextPage }, fetchGames]
 }
