@@ -9,12 +9,9 @@ export const useHomeFetch = () => {
     const [heroSlug, setHeroSlug] = useState("")
     const [nextPage, setNextPage] = useState("")
 
-
-
     const fetchGames = useCallback(async endpoint => {
         setError(false)
         setLoading(true)
-
         const isLoadMore = endpoint.search('page=')
 
         try {
